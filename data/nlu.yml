@@ -1,0 +1,109 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - perfect
+    - great
+    - amazing
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: start_game
+  examples: |
+    - I want to play
+    - start the game
+    - could you start this game, I want to play
+    - activate the game
+    - I am waitning to play with you!
+
+- intent: restart_game
+  examples: |
+    - I want to restart the game
+    - restarting plz
+    - how to play again from scratch
+    - no, I want to restart
+    - how to restart
+    - I don't want to continue
+    - I can't continue, I will lose
+
+- intent: game_rules
+  examples: |
+    - what are the rules of this game
+    - what are the rules please
+    - could you tell the requiments
+    - the rules plz
+    - hhow to play this game
+    - how to play
+    - I don't undestand the rules here ??
+    - could you explain to me the rules again
+    - what is MasterMind Game
+    - tell me more about the game
+    - remind me of the rules
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what is your purpose
+    - how can you help me
+    - what is your role
+    - tell me about yourself
+
+- intent: thankyou
+  examples: |
+    - Cool. Thanks
+    - Great, thanks
+    - Thank you
+    - Thank you for the game
+    - Thank you so much
+    - Thank's!
+    - Thanks
+    - Thanks bot
+    - Thanks for that
+    - amazing, thanks

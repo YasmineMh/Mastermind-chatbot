@@ -1,0 +1,101 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - start_game
+  - restart_game
+  - game_rules
+  - bot_challenge
+  - thankyou
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_great:
+  - text: "Great! Good for you :)"
+
+  utter_start_game:
+  - text: "Are you ready to play with me?"
+
+  utter_understand_game:
+  - text: "Do you want to know more about this game?"
+
+  utter_game_rules:
+  - text: "This game is similar to MasterMind Game which is a number game. 
+  I will select a secret number with four different (unique) digits. 
+  The object of the game is to guess that secret number. 
+  Each guess is answered by the number of digits in the guess number that match or occur in the secret number. 
+  You will also be told how many of the digits are in the correct position in the chosen number. 
+  Through a process of elimination, you should be able to deduce the correct digits using logic."
+
+  utter_example:
+  - text: "If I chose 1234 number and you enter 7438, I will tell you those infomations: 1 CP and 1 IP.
+  Explanation: The number contains one digit in a correct position (CP) which is the digit 3 AND one digit but in an incorrect position (IP) which is the digit 4"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_not_playing:
+  - text: "Okay!"
+
+  utter_thankyou:
+  - text: "You are welcome!"
+
+  utter_bot_challenge:
+  - text: "I am a bot. I am programmed to play with you MasterMind Game"
+
+slots:
+  attempts:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: custom
+  previous_cp:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: custom
+  previous_ip:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: custom
+  attempts_number:
+    type: float
+    influence_conversation: false
+    mappings:
+    - type: custom
+  chosen_number:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  attempt:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: form_game
+        requested_slot: attempt
+
+
+actions:
+- action_ask_attempt
+- submit_form_game
+- validate_form_game
+- action_generate_number
+
+forms:
+  form_game:
+    required_slots:
+    - attempt
+
+
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true

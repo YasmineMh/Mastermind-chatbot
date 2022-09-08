@@ -1,0 +1,28 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Tell the user that it's a bot
+  steps:
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+
+- rule: Reply to thankyou message
+  steps:
+  - intent: thankyou
+  - action: utter_thankyou
+
+- rule: Submit form_game
+  condition:
+  - active_loop: form_game
+  steps:
+  - action: form_game
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_form_game

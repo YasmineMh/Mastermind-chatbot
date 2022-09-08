@@ -1,0 +1,92 @@
+version: "3.1"
+
+stories:
+
+- story: Affirm playing with rules
+  steps:
+  - or:
+    - intent: start_game
+    - intent: restart_game
+  - action: utter_understand_game
+  - intent: affirm
+  - action: utter_game_rules
+  - action: utter_example
+  - action: utter_start_game
+  - intent: affirm
+  - action: action_generate_number
+  - action: form_game
+  - active_loop: form_game
+
+- story: Affirm playing without rules
+  steps:
+  - or:
+    - intent: start_game
+    - intent: restart_game
+  - action: utter_understand_game
+  - intent: deny
+  - action: utter_start_game
+  - intent: affirm
+  - action: action_generate_number
+  - action: form_game
+  - active_loop: form_game
+  
+- story: Deny playing with rules
+  steps:
+  - or:
+    - intent: start_game
+    - intent: restart_game  
+  - action: utter_understand_game
+  - intent: affirm
+  - action: utter_game_rules
+  - action: utter_example
+  - action: utter_start_game
+  - intent: deny
+  - action: utter_not_playing
+
+- story: Deny playing without rules
+  steps:
+  - or:
+    - intent: start_game
+    - intent: restart_game  
+  - action: utter_understand_game
+  - intent: deny
+  - action: utter_start_game
+  - intent: deny
+  - action: utter_not_playing
+
+
+- story: Tell the rules and play
+  steps:
+  - intent: game_rules
+  - action: utter_game_rules
+  - action: utter_example
+  - action: utter_start_game
+  - intent: affirm
+  - action: action_generate_number
+  - action: form_game
+  - active_loop: form_game
+
+
+- story: Tell the rules without playing
+  steps:
+  - intent: game_rules
+  - action: utter_game_rules
+  - action: utter_example
+  - action: utter_start_game
+  - intent: deny
+  - action: utter_not_playing
+
+  
+
+- story: Greeting simple
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+
+- story: Greeting 
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_great
